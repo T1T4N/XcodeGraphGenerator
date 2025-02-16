@@ -3,7 +3,7 @@ import NIOHTTP1
 import Foundation
 import XcodeGraphGeneratorCore
 
-class HTTPHandler: ChannelInboundHandler {
+final class HTTPHandler: ChannelInboundHandler, Sendable {
     typealias InboundIn = HTTPServerRequestPart
     typealias OutboundOut = HTTPServerResponsePart
 

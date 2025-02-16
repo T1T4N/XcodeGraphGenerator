@@ -151,7 +151,10 @@ public class GraphDataLoader {
             MetadataItem(key: "Path", value: project.path.pathString),
             MetadataItem(key: "Source Root", value: project.sourceRootPath.pathString),
             MetadataItem(key: "Xcode Project Path", value: project.xcodeProjPath.pathString),
-            MetadataItem(key: "Is External", value: project.isExternal ? "Yes" : "No")
+            MetadataItem(key: "Is External", value: {
+                if case .external = project.type { return "Yes "}
+                else { return "No" }
+            }())
         ]
 
         // Add optional values if available
